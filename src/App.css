@@ -7,6 +7,33 @@
   pointer-events: none;
 }
 
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 30%;
+  min-width: 30%;
+  max-width: 30%;
+}
+
+@media(max-width: 560px) {
+  .card {
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 960px) {
+  .card {
+    width: 40%;
+    min-width: 40%;
+    max-width: 40%;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
