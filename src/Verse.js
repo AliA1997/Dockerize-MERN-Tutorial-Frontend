@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { server } from './utils';
 
 export default function Verse({ verse, favorites, setFavorites, setVerses }) {
   const isFavorite = favorites.some(
@@ -13,7 +14,7 @@ export default function Verse({ verse, favorites, setFavorites, setVerses }) {
     const ipAddressResponse = await axios.get(
       "https://geolocation-db.com/json/"
     );
-    await axios.post("http://localhost:81/api/add-favorite", {
+    await axios.post(`${server}/api/add-favorite`, {
       ip_address: ipAddressResponse.data.IPv4,
       verse,
     });

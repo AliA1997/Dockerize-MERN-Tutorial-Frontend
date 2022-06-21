@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
+import { server } from './utils';
 
 export default function Favorite({ favorite, setFavorites }) {
   const removeFromFavoriteVerses = async () => {
     await axios.delete(
-      `http://localhost:81/api/delete-favorite/${favorite["_id"]}`
+      `${server}/api/delete-favorite/${favorite["_id"]}`
     );
     alert(`Favorite Verse with an id of ${favorite["_id"]} has been removed.`);
     await setFavorites();

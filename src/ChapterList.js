@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { formatChapterResponse } from "./utils";
+import { formatChapterResponse, server } from "./utils";
 import Chapter from './Chapter';
 
 export default function ChapterList() {
@@ -10,7 +10,7 @@ export default function ChapterList() {
         () => {
             /* Use axios to get chapters from the backend. */
             async function getChapters() {
-                const chapterResponse = await axios.get("http://localhost:81/api/get-chapters?language=en");
+                const chapterResponse = await axios.get(`${server}/api/get-chapters?language=en`);
                 if(chapterResponse && chapterResponse["data"]) setChapters(formatChapterResponse(chapterResponse["data"]["quranChapters"]));
             }
             /* Call function to get data from backend. */

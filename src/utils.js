@@ -1,3 +1,4 @@
+export const server = process.env.NODE_ENV === 'production' ? 'http://mern-tutorial-backend-lb-884997464.us-east-1.elb.amazonaws.com' : 'http://localhost:81'
 
 /* Functions responsible for formatting response. */
 export const formatChapterResponse = (chapterResponse) => {

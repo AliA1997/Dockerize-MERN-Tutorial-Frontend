@@ -4,7 +4,7 @@ import ChapterList from "./ChapterList";
 import FavoritesList from "./FavoritesList";
 import VersesList from "./VersesList";
 import axios from "axios";
-import { formatVersesResponse } from "./utils";
+import { formatVersesResponse, server } from "./utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
@@ -17,7 +17,7 @@ function App() {
   /* By Default get all the verses from the first chapter. */
   async function getVerses() {
     const versesResponse = await axios.get(
-      "http://localhost:81/api/get-verses/1"
+      `${server}/api/get-verses/1`
     );
 
     if (versesResponse && versesResponse["data"])
@@ -26,7 +26,7 @@ function App() {
   /* Use axios to get favorites from the backend. */
   async function getFavorites() {
     const favoriteResponse = await axios.get(
-      "http://localhost:81/api/get-favorite"
+      `${server}/api/get-favorite`
     );
     if (favoriteResponse && favoriteResponse["data"])
       setFavorites(favoriteResponse["data"]["favorites"]);
